@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="css/semantic.js"></script>
+	<script src="js/misc.js"></script>
+    
+    <link href="css/semantic.css" rel="stylesheet" >
+    <link href="css/icon.css" rel="stylesheet" >
+    <link href="css/styles.css" rel="stylesheet">  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">	
+	
+	<script type="text/javascript" src="js/insert.js"></script> 
+	
+	<link href="images/circuitlogo2.jpg" rel="icon">
+	<title>Circuit Office</title>
+    
+	<style>
+	.bgimg {
+		background-image: url('images/background.jpg');
+	}
+	.w3-btn {
+		width:150px;
+	}
+	td{
+		text-align:center;
+	}
+	.insert{
+		padding-top:50px;
+	}
+	</style>
+</head>
+<body >
+    
+<header>   
+    
+    <div class="ui attached stackable borderless huge menu">
+        <div class="ui container">
+            <h2 class="header item">
+              <img alt="Circuit center logo" src="images/circuitlogo2.jpg" >
+            </h2>  
+            <a class="item" href="home.html">
+              <i class="home icon"></i> Home
+            </a>       
+            <a class="item" href="about.html">
+              <i class="mail icon"></i> About Us
+            </a>      
+            <a class="item">
+              <i class="home icon"></i> Blog
+            </a>      
+            <div class="ui simple dropdown item">
+              <i class="grid layout icon"></i>
+              Browse
+                <i class="dropdown icon"></i>
+              <div class="menu">
+                <a class="item"><i class="users icon"></i> Artists</a>
+                <a class="item"><i class="theme icon"></i> Genres</a>
+                <a class="item"><i class="paint brush icon"></i> Paintings</a>
+                <a class="item"><i class="cube icon"></i> Subjects</a>
+              </div>
+            </div>        
+            <div class="right item">
+                <div class="ui mini icon input">
+					<form action="https://google.com/search" type="GET">
+						<input type="search" name="q" placeholder="Search ...">
+						<i class="search icon"></i>
+						<script>
+							var form = document.querySelector("form");
+							form.addEventListener("search", function (e) {
+							e.preventDefault();
+							var search = form.querySelector("input[type=search]");
+							search.value = "Site: Circuit Office " + search.value;
+							form.submit();
+							});
+						</script>
+					</form>
+                </div>
+            </div>      
+
+        </div>
+    </div>       
+</header> 
+    
+<div class="bgimg">
+<main class="ui segment doubling stackable grid container">
+
+    <section class="five wide column">
+        <form class="ui form">
+			<div>
+				<h2 class="ui dividing header">Rules</h4>   
+				<b style="color:red">Rules must be followed to get the maxinmum results out of this prototype simulator.</b> 
+				<br>
+				x = any number;
+				<dl>
+					<dt>Valid elememt reprentation:</dt>
+					<dd>-Rx(Resitor x),....</dd>
+					<dt>Parsed with commas(,)</dt>
+					<dd>Values of elements for each input must be separated with commas</dd>
+					<dt>End with a full stop(.)</dt>
+					<dd>Each input field must be ended to indicate field end.</dd>
+					<dt>Click Add</dt>
+					<dd>After each line is inserted click add before typing the next line</dd>
+					<dt>Click Display</dt>
+					<dd>To view the inserted netlist</dd>
+					<dt>Click Clear</dt>
+					<dd>To empty netlist if there is a mistake in the inserted netlist. Display result again to ensure input is empty</dd>
+					<dt>Click Solve</dt>
+					<dd>After inserting the netlist in correct format, Insert value of element to solve for and then click solve for solutions</dd>
+				</dl>
+			</div>
+        </form>
+    </section>
+    
+
+    <section class="eleven wide column">
+        <h1 class="ui header">Insert Netlist of Circuit in matrix</h1>
+		<div class="insert">
+			<input type="text" id="text1" placeholder="Insert Netlist here"></input>
+			<br>
+			<br>
+			<input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
+			<input type="button" id="button2" value="Display" onclick="display_array();"></input>
+			<input type="button" id="button3" value="Clear" onclick="clear_array();"></input>
+			<br>
+			<br>
+			<input type="text" id="text2" placeholder="Value to solve for"></input>
+			<input type="button" id="button4" value="Simulate" onclick="solve();"></input>
+			
+			
+			<div id="Result"></div>
+		</div>
+    </section>  
+    </div>
+</main>    
+    
+  <footer class="ui black inverted segment">
+      <div class="ui container">
+	  <table style="width:100%">
+			<tr>
+				<td><a href="home.html">Home</a></td>
+				<td><a href="home.html#target">Electronics Textbooks</a></td> 
+				<td><a href="about.html">About Us</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">My Workbench</a></td>
+				<td><a href="#">Electronics Q&amp;A</a></td>
+				<td><a href="#">Contact Us</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">Documentation/FAQ</a></td>
+				<td><a href="#">Forums</a></td>
+				<td><a href="#">Terms of Service</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">Membership</a></td>
+				<td><a href="#">Blog</a></td>
+				<td><a href="#">Privacy Policy</a></td>
+			</tr>
+		</table>
+	  <hr>
+	  <img alt="Circuit center logo" src="images/circuitlogo2.jpg" > 
+	  <p>
+	  Circuit Office provides online, in-browser tools for netlist capture and circuit simulation. These tools allow students, hobbyists, and professional engineers to design and analyze analog and digital systems before ever building them. Online netlist capture lets hobbyists easily share and discuss their designs, while online circuit simulation allows for quick design iteration and accelerated learning about electronics.
+	  </p>
+	  <p>
+	  Copyright © 2020 by Circuit Office.
+	  </p>
+	  </div>
+  </footer>
+</body>
+</html>
