@@ -1,0 +1,122 @@
+.ui.segment.grey100 {
+    background-color: #F5F5F5;
+    margin: 0 0 10px 0;
+    box-shadow: none;
+    border: none;
+}
+
+
+.hero-container {
+  min-height: 400px;
+  background-image: url(../images/hero1.jpg);
+  background-repeat: no-repeat;
+  background-size: 1700px 900px;
+  background-position: center top;
+    
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+	margin: 0.25em;
+	padding: 0.25em;
+	color: black;
+	text-align: center;
+	font-size: 2em;
+	background-color: rgb(201, 201, 201);
+}
+
+h2 {
+	margin: 0.5em;
+	padding: 0.5em;
+	text-align: center;
+	font-size: 1.25em;
+}
+
+h3 {
+	text-align: center;
+	color:#007ac0;
+}
+
+h4 {
+	color: #4a1db3;
+}
+
+
+body {
+	background-color: lightgrey;
+	margin: auto;
+}
+
+.content {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+
+table {
+	border-collapse: collapse;
+	margin: auto;
+	text-align: center;
+}
+
+td, th {
+	border: 1px solid grey;
+	background-color:rgb(233, 233, 233)
+}
+
+.aboutustable {
+	width: 100%;
+}
+
+a{
+	font-family:'Courier New', Courier, monospace;
+	font-size: 75%;
+}
+
+a:link {
+	color: red;
+}
+a:visited {
+	color: red;
+}
+
+th {
+	font-weight: bold;
+	background-color: rgb(180, 180, 180);
+}
+
+tr {
+	font-weight: normal;
+}
+
+input[type=submit] {
+	background-color: #a6ff00;
+}
+
+select {
+	background-color: white;
+}
+
+button {
+	margin: 1em;
+	padding: 1em;
+	background-color: #a6ff00;
+	font-size: 150%;
+}
+
+  /* Add a color to the active/current link */
+  .topnav a.active {
+	background-color: #4a1db3;
+	color: white;
+  }
+
+  footer {
+	  margin: 0.5em;
+	  padding: 0.25em;
+	  position: fixed;
+	  bottom: 0;
+	  left: auto;
+	  text-align:center;
+	  color: rgb(56, 56, 56);
+  }

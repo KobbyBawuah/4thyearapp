@@ -1,50 +1,64 @@
-<!DOCTYPE html>
-<html lang=en>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset=utf-8>
+    <meta charset="UTF-8">
+    <meta charset=utf-8>
     <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="css/semantic.js"></script>
-	<script src="js/misc.js"></script>
-    
-    <link href="css/semantic.css" rel="stylesheet" >
-    <link href="css/icon.css" rel="stylesheet" >
-    <link href="css/styles.css" rel="stylesheet">  
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">	
-	
-	<script type="text/javascript" src="js/insert.js"></script> 
-	
-	<link href="images/circuitlogo2.jpg" rel="icon">
-	<title>Circuit Office</title>
-    
-	<style>
-	.bgimg {
-		background-image: url('images/background.jpg');
-	}
-	.w3-btn {
-		width:150px;
-	}
-	td{
-		text-align:center;
-	}
-	.insert{
-		padding-top:50px;
-	}
-	</style>
+    <script src="/static/css/semantic.js"></script>
+    <script src="/static/js/misc.js"></script>
+
+    <link href="/static/css/semantic.css" rel="stylesheet" />
+    <link href="/static/css/icon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/_styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link href="images/circuitlogo2.jpg" rel="icon">
+    <title>Circuit Office</title>
+
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" /> -->
+    <!-- <h1>CircuitSimulatorApp</h1> -->
+    <!-- {% block head %}{% endblock %} -->
+	{% block style %}{% endblock %}
+
 </head>
-<body >
-    
-<header>   
+<body>
+	<header>
+    <div class="ui attached stackable grey inverted  menu">
+        <div class="ui container">
+            <nav class="right menu">            
+                <div class="ui simple  dropdown item">
+                  <i class="user icon"></i>
+                  Account
+                    <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <a class="item"><i class="sign in icon"></i> Login</a>
+                    <a class="item"><i class="edit icon"></i> Edit Profile</a>
+                    <a class="item"><i class="globe icon"></i> Choose Language</a>
+                    <a class="item"><i class="settings icon"></i> Account Settings</a>
+                  </div>
+                </div>
+                <a class=" item">
+                  <i class="heartbeat icon"></i> Favorites
+                </a>        
+                <a class=" item">
+                  <i class="shop icon"></i> Cart
+                </a>                                     
+            </nav>            
+        </div>     
+    </div>   
     
     <div class="ui attached stackable borderless huge menu">
         <div class="ui container">
             <h2 class="header item">
               <img alt="Circuit center logo" src="images/circuitlogo2.jpg" >
             </h2>  
-            <a class="item" href="home.html">
+            <a class="item">
               <i class="home icon"></i> Home
             </a>       
             <a class="item" href="about.html">
@@ -80,65 +94,16 @@
 						</script>
 					</form>
                 </div>
-            </div>      
-
+            </div>       
         </div>
     </div>       
 </header> 
+<main >
     
-<div class="bgimg">
-<main class="ui segment doubling stackable grid container">
-
-    <section class="five wide column">
-        <form class="ui form">
-			<div>
-				<h2 class="ui dividing header">Rules</h4>   
-				<b style="color:red">Rules must be followed to get the maxinmum results out of this prototype simulator.</b> 
-				<br>
-				x = any number;
-				<dl>
-					<dt>Valid elememt reprentation:</dt>
-					<dd>-Rx(Resitor x),....</dd>
-					<dt>Parsed with commas(,)</dt>
-					<dd>Values of elements for each input must be separated with commas</dd>
-					<dt>End with a full stop(.)</dt>
-					<dd>Each input field must be ended to indicate field end.</dd>
-					<dt>Click Add</dt>
-					<dd>After each line is inserted click add before typing the next line</dd>
-					<dt>Click Display</dt>
-					<dd>To view the inserted netlist</dd>
-					<dt>Click Clear</dt>
-					<dd>To empty netlist if there is a mistake in the inserted netlist. Display result again to ensure input is empty</dd>
-					<dt>Click Solve</dt>
-					<dd>After inserting the netlist in correct format, Insert value of element to solve for and then click solve for solutions</dd>
-				</dl>
-			</div>
-        </form>
-    </section>
-    
-
-    <section class="eleven wide column">
-        <h1 class="ui header">Insert Netlist of Circuit in matrix</h1>
-		<div class="insert">
-			<input type="text" id="text1" placeholder="Insert Netlist here"></input>
-			<br>
-			<br>
-			<input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
-			<input type="button" id="button2" value="Display" onclick="display_array();"></input>
-			<input type="button" id="button3" value="Clear" onclick="clear_array();"></input>
-			<br>
-			<br>
-			<input type="text" id="text2" placeholder="Value to solve for"></input>
-			<input type="button" id="button4" value="Simulate" onclick="solve();"></input>
-			
-			
-			<div id="Result"></div>
-		</div>
-    </section>  
-    </div>
-</main>    
-    
-  <footer class="ui black inverted segment">
+    {% block body %}{% endblock %}
+	
+</main>
+<footer class="ui black inverted segment">
       <div class="ui container">
 	  <table style="width:100%">
 			<tr>
@@ -171,6 +136,6 @@
 	  Copyright © 2020 by Circuit Office.
 	  </p>
 	  </div>
-  </footer>
+</footer>
 </body>
 </html>

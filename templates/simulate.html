@@ -1,0 +1,148 @@
+﻿{% extends 'base.html' %}
+
+{% block style %}
+
+<style>
+	.bgimg {
+		background-image: url('images/background.jpg');
+	}
+
+	.w3-btn {
+		width: 150px;
+	}
+
+	td {
+		text-align: center;
+	}
+
+	.insert {
+		padding-top: 50px;
+	}
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="bgimg">
+	<main class="ui segment doubling stackable grid container">
+
+		<section class="five wide column">
+			<form class="ui form">
+				<div>
+					<h2 class="ui dividing header">Rules</h2>
+					<b style="color:red">Rules must be followed to get the maxinmum results out of this prototype simulator.</b>
+					<br>
+					x = any number;
+					<dl>
+						<dt>Valid elememt reprentation:</dt>
+						<dd>-Rx(Resitor x),....</dd>
+						<dt>Parsed with commas(,)</dt>
+						<dd>Values of elements for each input must be separated with commas</dd>
+						<dt>End with a full stop(.)</dt>
+						<dd>Each input field must be ended to indicate field end.</dd>
+						<dt>Click Add</dt>
+						<dd>After each line is inserted click add before typing the next line</dd>
+						<dt>Click Display</dt>
+						<dd>To view the inserted netlist</dd>
+						<dt>Click Clear</dt>
+						<dd>To empty netlist if there is a mistake in the inserted netlist. Display result again to ensure input is empty</dd>
+						<dt>Click Solve</dt>
+						<dd>After inserting the netlist in correct format, Insert value of element to solve for and then click solve for solutions</dd>
+					</dl>
+				</div>
+			</form>
+		</section>
+
+
+		<section class="eleven wide column">
+			<h1 class="ui header">Insert Netlist of Circuit in matrix</h1>
+			<div class="content">
+				<form action="/" method="POST">
+					<select name="ptype" id="ptype">
+						<option value="V">Voltage Source (V)</option>
+						<option value="R">Resistor (R)</option>
+						<option value="C">Capacitor (C)</option>
+						<option value="L">Inductor (L)</option>
+					</select>
+					<input type="text" name="pident" id="pident" placeholder="Identifier" style="width:7em" required>
+					<input type="number" name="pvalue" id="pvalue" placeholder="Value [V,&#937;,F,H]" min="0" step="any" required>
+					<input type="number" name="pnode1" id="pnode1" placeholder="Node 1" min="0" step="1" style="width:7em" required>
+					<input type="number" name="pnode2" id="pnode2" placeholder="Node 2" min="0" step="1" style="width:7em" required>
+					<input type="submit" value="Add Component">
+				</form>
+
+				{% if partAddedH %}
+				<h3>Component successfully added</h3><br>
+				<!-- doesn't work yet... ( <a href='/undo'> UNDO ADD</a> ) -->
+				{% elif partFailedH %}
+				<h3 style="color:red">Component identifier already in netlist!</h3><br>
+				{% else %}
+				<br><br>
+				{% endif %}
+
+
+				{% if PartHTML.number_of_parts < 1 %}
+				<p style="color:darkred" style="margin:0.5em">The netlist is currently empty.</p>
+				<br>
+				{% else %}
+				<p style="color:darkblue" style="padding:1em">
+					{% if PartHTML.number_of_parts == 1 %}
+					Total: {{ PartHTML.number_of_parts }} Net
+					{% else %}
+					Total: {{ PartHTML.number_of_parts }} Nets
+					{% endif %}
+				</p>
+				( <a href='/clear'>CLEAR NETLIST</a> )
+
+
+				<table>
+					<thead>
+						<tr>
+							<th style="width:6em">Component</th>
+							<th style="width:12em">Value</th>
+							<th style="width:4em">Units</th>
+							<th style="width:6em">Node 1</th>
+							<th style="width:6em">Node 2</th>
+							<th style="width:6em">Action</th>
+						</tr>
+						{% for Part in part_arrayHTML %} <!-- Make a new row for each part in the netlist -->
+						<tr>
+							<td>{{Part.getPartName()}}</td>
+							<td>{{Part.partValue}}</td>
+							<td>{{Part.getUnits()}}</td>
+							<td>{{Part.node1}}</td>
+							<td>{{Part.node2}}</td>
+							<td>
+								<!--<a href="">Update</a>
+					<br> -->
+								<a href="/delete/{{Part.getPartName()}}">Delete</a>
+							</td>
+						</tr>
+					</thead>
+					{% endfor %}
+				</table>
+
+
+				<br><hr width=75%><br>
+				<form action="/run" method="POST">
+					<select name="simtype" id="simtype">
+						<option value="1">Voltage Analysis</option>
+						<option value="2">Time Analysis</option>
+						<option value="3">Frequency Analysis</option>
+					</select>
+					<input type="number" name="simnode" id="simnode" placeholder="Node" min="0" step="1" style="width:8em" required>
+					<input type="text" name="simstartfreq" id="simstartfreq" placeholder="Start Frequency [Hz]">
+					<input type="text" name="simendfreq" id="simendfreq" placeholder="End Frequency [Hz]">
+					<input type="submit" value="Run Simulation">
+				</form>
+
+
+				{% endif %}
+
+			</div>
+		</section>
+	</main>
+</div>
+
+{% endblock %}
