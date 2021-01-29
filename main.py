@@ -6,6 +6,7 @@ from operator import itemgetter, attrgetter
 
 app = Flask(__name__)       # Use the flask Python web framework
 part_array = []             # Establish the netlist holding the parts and their information (Parts objects)
+sim = None 
 # Definition of the Part class
 # @param input partType The type of part (0=VDC, 1=VAC, 2=Resistor, 3=Capacitor,4=Inductor)
 # @param input partId The instance of the part within that type
