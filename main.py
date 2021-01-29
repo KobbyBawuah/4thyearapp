@@ -5,8 +5,6 @@ from operator import itemgetter, attrgetter
 # PROGRAMMED BY JUSTIN SWARD and KWABENA GYASI BAWUAH
 
 app = Flask(__name__)       # Use the flask Python web framework
-part_array = []             # Establish the netlist holding the parts and their information (Parts objects)
-sim = None 
 # Definition of the Part class
 # @param input partType The type of part (0=VDC, 1=VAC, 2=Resistor, 3=Capacitor,4=Inductor)
 # @param input partId The instance of the part within that type
@@ -166,6 +164,6 @@ def about():
 
 # Run the main program
 if __name__ == "__main__":
-    #part_array = []             # Establish the netlist holding the parts and their information (Parts objects)
+    part_array = []             # Establish the netlist holding the parts and their information (Parts objects)
     sim = Simulation("0",0,0,0) # Keeps track of the simulation settings - establish defaults
     app.run(debug=True) # Add Port 8080 to run virtualenv on the Google Cloud App platform
