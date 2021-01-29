@@ -114,7 +114,7 @@ def simulate():
         return render_template('simulate.html')
         #PartHTML = Part, part_arrayHTML = part_array, simHTML = sim, partAddedH = partAdded, partFailedH = partFailed
     else:
-        return render_template("simulate.html")
+        return render_template('simulate.html')
 
 # Run simulation using the simulation parameters given
 @app.route('/run', methods=['POST', 'GET'])
