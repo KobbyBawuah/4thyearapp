@@ -163,12 +163,6 @@ def about():
     return render_template('about.html')
 
 
-# Renders the Instructions web page
-@app.route('/instructions')
-def instructions():
-    return render_template('instructions.html')
-
-
 # Run the main program
 if __name__ == "__main__":
     part_array = []             # Establish the netlist holding the parts and their information (Parts objects)
