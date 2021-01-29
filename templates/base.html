@@ -6,10 +6,6 @@
     <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/static/css/semantic.js"></script>
-    <script src="/static/js/misc.js"></script>
-
     <link href="/static/css/semantic.css" rel="stylesheet" />
     <link href="/static/css/icon.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/css/styles.css" />
@@ -17,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <link href="images/circuitlogo2.jpg" rel="icon">
+    <link href="/static/images/circuitlogo2.jpg" rel="icon">
     <title>Circuit Office</title>
 
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}" /> -->
@@ -28,114 +24,117 @@
 
 </head>
 <body>
-	<header>
-    <div class="ui attached stackable grey inverted  menu">
-        <div class="ui container">
-            <nav class="right menu">            
-                <div class="ui simple  dropdown item">
-                  <i class="user icon"></i>
-                  Account
-                    <i class="dropdown icon"></i>
-                  <div class="menu">
-                    <a class="item"><i class="sign in icon"></i> Login</a>
-                    <a class="item"><i class="edit icon"></i> Edit Profile</a>
-                    <a class="item"><i class="globe icon"></i> Choose Language</a>
-                    <a class="item"><i class="settings icon"></i> Account Settings</a>
-                  </div>
-                </div>
-                <a class=" item">
-                  <i class="heartbeat icon"></i> Favorites
-                </a>        
-                <a class=" item">
-                  <i class="shop icon"></i> Cart
-                </a>                                     
-            </nav>            
-        </div>     
-    </div>   
-    
-    <div class="ui attached stackable borderless huge menu">
-        <div class="ui container">
-            <h2 class="header item">
-              <img alt="Circuit center logo" src="images/circuitlogo2.jpg" >
-            </h2>  
-            <a class="item">
-              <i class="home icon"></i> Home
-            </a>       
-            <a class="item" href="about.html">
-              <i class="mail icon"></i> About Us
-            </a>      
-            <a class="item">
-              <i class="home icon"></i> Blog
-            </a>      
-            <div class="ui simple dropdown item">
-              <i class="grid layout icon"></i>
-              Browse
-                <i class="dropdown icon"></i>
-              <div class="menu">
-                <a class="item"><i class="users icon"></i> Artists</a>
-                <a class="item"><i class="theme icon"></i> Genres</a>
-                <a class="item"><i class="paint brush icon"></i> Paintings</a>
-                <a class="item"><i class="cube icon"></i> Subjects</a>
-              </div>
-            </div>        
-            <div class="right item">
-                <div class="ui mini icon input">
-					<form action="https://google.com/search" type="GET">
-						<input type="search" name="q" placeholder="Search ...">
-						<i class="search icon"></i>
-						<script>
-							var form = document.querySelector("form");
-							form.addEventListener("search", function (e) {
-							e.preventDefault();
-							var search = form.querySelector("input[type=search]");
-							search.value = "Site: Circuit Office " + search.value;
-							form.submit();
-							});
-						</script>
-					</form>
-                </div>
-            </div>       
+    <header>
+        <div class="ui attached stackable grey inverted  menu">
+            <div class="ui container">
+                <nav class="right menu">
+                    <div class="ui simple  dropdown item">
+                        <i class="user icon"></i>
+                        Account
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item"><i class="sign in icon"></i> Login</a>
+                            <a class="item"><i class="edit icon"></i> Edit Profile</a>
+                            <a class="item"><i class="globe icon"></i> Choose Language</a>
+                            <a class="item"><i class="settings icon"></i> Account Settings</a>
+                        </div>
+                    </div>
+                    <a class=" item">
+                        <i class="heartbeat icon"></i> Favorites
+                    </a>
+                    <a class=" item">
+                        <i class="shop icon"></i> Cart
+                    </a>
+                </nav>
+            </div>
         </div>
-    </div>       
-</header> 
-<main >
-    
-    {% block body %}{% endblock %}
-	
-</main>
-<footer class="ui black inverted segment">
-      <div class="ui container">
-	  <table style="width:100%">
-			<tr>
-				<td><a href="home.html">Home</a></td>
-				<td><a href="home.html#target">Electronics Textbooks</a></td> 
-				<td><a href="about.html">About Us</a></td>
-			</tr>
-			<tr>
-				<td><a href="#">My Workbench</a></td>
-				<td><a href="#">Electronics Q&amp;A</a></td>
-				<td><a href="#">Contact Us</a></td>
-			</tr>
-			<tr>
-				<td><a href="#">Documentation/FAQ</a></td>
-				<td><a href="#">Forums</a></td>
-				<td><a href="#">Terms of Service</a></td>
-			</tr>
-			<tr>
-				<td><a href="#">Membership</a></td>
-				<td><a href="#">Blog</a></td>
-				<td><a href="#">Privacy Policy</a></td>
-			</tr>
-		</table>
-	  <hr>
-	  <img alt="Circuit center logo" src="images/circuitlogo2.jpg" > 
-	  <p>
-	  Circuit Office provides online, in-browser tools for netlist capture and circuit simulation. These tools allow students, hobbyists, and professional engineers to design and analyze analog and digital systems before ever building them. Online netlist capture lets hobbyists easily share and discuss their designs, while online circuit simulation allows for quick design iteration and accelerated learning about electronics.
-	  </p>
-	  <p>
-	  Copyright © 2020 by Circuit Office.
-	  </p>
-	  </div>
-</footer>
+
+        <div class="ui attached stackable borderless huge menu">
+            <div class="ui container">
+                <h2 class="header item">
+                    <img alt="Circuit center logo" src="/static/images/circuitlogo2.jpg">
+                </h2>
+                <a class="item" href="/">
+                    <i class="home icon"></i> Home
+                </a>
+                <a class="item" href="/about">
+                    <i class="mail icon"></i> About Us
+                </a>
+                <a class="item">
+                    <i class="home icon"></i> Blog
+                </a>
+                <div class="ui simple dropdown item">
+                    <i class="grid layout icon"></i>
+                    Browse
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item"><i class="users icon"></i> Artists</a>
+                        <a class="item"><i class="theme icon"></i> Genres</a>
+                        <a class="item"><i class="paint brush icon"></i> Paintings</a>
+                        <a class="item"><i class="cube icon"></i> Subjects</a>
+                    </div>
+                </div>
+                <div class="right item">
+                    <div class="ui mini icon input">
+                        <form action="https://google.com/search" type="GET">
+                            <input type="search" name="q" placeholder="Search ...">
+                            <i class="search icon"></i>
+                            <script>
+                                var form = document.querySelector("form");
+                                form.addEventListener("search", function (e) {
+                                    e.preventDefault();
+                                    var search = form.querySelector("input[type=search]");
+                                    search.value = "Site: Circuit Office " + search.value;
+                                    form.submit();
+                                });
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        {% block body %}{% endblock %}
+
+    </main>
+    <footer class="ui black inverted segment">
+        <div class="ui container">
+            <table style="width:100%">
+                <tr>
+                    <td><a href="/">Home</a></td>
+                    <td><a href="/#target">Electronics Textbooks</a></td>
+                    <td><a href="/about">About Us</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">My Workbench</a></td>
+                    <td><a href="#">Electronics Q&amp;A</a></td>
+                    <td><a href="#">Contact Us</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Documentation/FAQ</a></td>
+                    <td><a href="#">Forums</a></td>
+                    <td><a href="#">Terms of Service</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Membership</a></td>
+                    <td><a href="#">Blog</a></td>
+                    <td><a href="#">Privacy Policy</a></td>
+                </tr>
+            </table>
+            <hr>
+            <img alt="Circuit center logo" src="/static/images/circuitlogo2.jpg">
+            <p>
+                Circuit Office provides online, in-browser tools for netlist capture and circuit simulation. These tools allow students, hobbyists, and professional engineers to design and analyze analog and digital systems before ever building them. Online netlist capture lets hobbyists easily share and discuss their designs, while online circuit simulation allows for quick design iteration and accelerated learning about electronics.
+            </p>
+            <p>
+                Copyright © 2020 by Circuit Office.
+            </p>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/static/css/semantic.js"></script>
+    <script src="/static/js/misc.js"></script>
 </body>
 </html>

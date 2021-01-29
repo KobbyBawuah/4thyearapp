@@ -8,7 +8,7 @@
 
 .hero-container {
   min-height: 400px;
-  background-image: url(/static/images/hero1.jpg);
+  background-image: url(../images/hero1.jpg);
   background-repeat: no-repeat;
   background-size: 1700px 900px;
   background-position: center top;
