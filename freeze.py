@@ -3,5 +3,5 @@ from main import app
 
 freezer = Freezer(app)
 
-if name == 'main':
+if __name__ == "__main__":
     freezer.freeze()
