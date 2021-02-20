@@ -20,38 +20,43 @@
 	}
 
     .button4 {
-        position: relative;
-        background-color: #4CAF50;
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #346e43;
         border: none;
-        font-size: 28px;
         color: #FFFFFF;
-        padding: 20px;
-        width: 200px;
         text-align: center;
-        transition-duration: 0.4s;
-        text-decoration: none;
-        overflow: hidden;
+        font-size: 28px;
+        padding: 8px;
+        width: 200px;
+        transition: all 0.5s;
         cursor: pointer;
+        margin: 5px;
     }
 
-    .button4:after {
-        content: "";
-        background: #f1f1f1;
-        display: block;
+    .button4 span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button4 span:after {
+        content: '\00bb';
         position: absolute;
-        padding-top: 300%;
-        padding-left: 350%;
-        margin-left: -20px !important;
-        margin-top: -120%;
         opacity: 0;
-        transition: all 0.3s
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
     }
 
-    .button4:active:after {
-        padding: 0;
-        margin: 0;
+    .button4:hover span {
+        padding-right: 25px;
+    }
+
+    .button4:hover span:after {
         opacity: 1;
-        transition: 0s
+        right: 0;
     }
 </style>
 
@@ -94,21 +99,24 @@
 			<h1 class="ui header">Insert Netlist of Circuit in matrix</h1>
 			<div class="insert">
 
-				<!--<form action="/simulate" method="POST">-->
+				<!--add button to remove last add-->
 				<input type="text" id="text1" placeholder="Insert Netlist here"></input>
 				<br>
 				<br>
 				<input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
 				<input type="button" id="button3" value="Clear" onclick="clear_array();"></input>
 				<br>
+				<div id="Result"></div>
 				<br>
 				<input type="text" id="text2" placeholder="Value to solve for"></input>
-				<button class="button4" onclick="solve();">Simulate</button>
-
-
-				<div id="Result"></div>
-				<!--</form>-->
-
+				<br>
+				<br>
+				<input type="button" id="button1" value="Add" onclick="add_element_to_array2();"></input>
+				<input type="button" id="button3" value="Clear" onclick="clear_array2();"></input>
+				<br>
+				<div id="Result2"></div>
+				<br>
+				<button class="button4" style="vertical-align:middle" onclick="solve();"><span>Simulate</span></button>
 
 
 			</div>
