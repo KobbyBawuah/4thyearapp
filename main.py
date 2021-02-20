@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 from datetime import datetime
 from operator import itemgetter, attrgetter
+import csv
 
 # PROGRAMMED BY JUSTIN SWARD and KWABENA GYASI BAWUAH
 
@@ -90,29 +91,19 @@ def home():
     return render_template('home.html')
 
 
+
 # Render main simulator page; Add component to the netlist if one was added
 @app.route('/simulate', methods=['POST', 'GET'])
 def simulate():
-    partAdded = False
-    partFailed = False
-    if request.method == 'POST':    # If new part added, read in the parameters and create the new Part object
-        form_type = request.form['ptype']
-        form_ident = request.form['pident']
-        form_value = request.form['pvalue']
-        form_node1 = request.form['pnode1']
-        form_node2 = request.form['pnode2']
-        form_name = str(form_type) + str(form_ident)
-        # Check if part name is already in use -- only add if it is unused
-        if any(part.getPartName() == form_name for part in part_array):
-            partAdded = False   # Part was NOT added to the net list
-            partFailed = True   # Part did failed being added to the net list
-        else:
-            part_array.append(Part(form_type, form_ident, form_value, form_node1, form_node2))  # Create the new part and append to the list
-            part_array.sort(key=attrgetter('partType','partId'))    # Keep the parts list sorted every time one is added
-            partAdded = True    # Part successfully added to the net list
-            partFailed = False  # Part did not fail being added to the net list
-        return render_template('simulate.html')
-        #PartHTML = Part, part_arrayHTML = part_array, simHTML = sim, partAddedH = partAdded, partFailedH = partFailed
+    if request.method == 'POST': 
+        array = request.json
+        print(request.method)
+        print(array)
+        with open("circuitnetlist.csv","w",newline = "") as new_file:
+            csv_writer = csv.writer(new_file, delimiter = ",")
+            for line in array:
+                csv_writer.writerow(line.split(" "))
+        return redirect (url_for("run"))
     else:
         return render_template('simulate.html')
 

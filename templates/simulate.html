@@ -18,6 +18,41 @@
 	.insert {
 		padding-top: 50px;
 	}
+
+    .button4 {
+        position: relative;
+        background-color: #4CAF50;
+        border: none;
+        font-size: 28px;
+        color: #FFFFFF;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .button4:after {
+        content: "";
+        background: #f1f1f1;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.3s
+    }
+
+    .button4:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
+    }
 </style>
 
 {% endblock %}
@@ -28,40 +63,57 @@
 	<main class="ui segment doubling stackable grid container">
 
 		<section class="five wide column">
-			<form class="ui form">
-				<div>
-					<h2 class="ui dividing header">Rules</h2>
-					<b style="color:red">Rules must be followed to get the maxinmum results out of this prototype simulator.</b>
-					<br>
-					x = any number;
-					<dl>
-						<dt>Valid elememt reprentation:</dt>
-						<dd>-Rx(Resitor x),....</dd>
-						<dt>Parsed with commas(,)</dt>
-						<dd>Values of elements for each input must be separated with commas</dd>
-						<dt>End with a full stop(.)</dt>
-						<dd>Each input field must be ended to indicate field end.</dd>
-						<dt>Click Add</dt>
-						<dd>After each line is inserted click add before typing the next line</dd>
-						<dt>Click Display</dt>
-						<dd>To view the inserted netlist</dd>
-						<dt>Click Clear</dt>
-						<dd>To empty netlist if there is a mistake in the inserted netlist. Display result again to ensure input is empty</dd>
-						<dt>Click Solve</dt>
-						<dd>After inserting the netlist in correct format, Insert value of element to solve for and then click solve for solutions</dd>
-					</dl>
-				</div>
-			</form>
+			<!--<form class="ui form">-->
+			<div>
+				<h2 class="ui dividing header">Rules</h2>
+				<b style="color:red">Rules must be followed to get the maxinmum results out of this prototype simulator.</b>
+				<br>
+				x = any number;
+				<dl>
+					<dt>Valid elememt reprentation:</dt>
+					<dd>-Rx(Resitor x),....</dd>
+					<dt>Parsed with commas(,)</dt>
+					<dd>Values of elements for each input must be separated with commas</dd>
+					<dt>End with a full stop(.)</dt>
+					<dd>Each input field must be ended to indicate field end.</dd>
+					<dt>Click Add</dt>
+					<dd>After each line is inserted click add before typing the next line</dd>
+					<dt>Click Display</dt>
+					<dd>To view the inserted netlist</dd>
+					<dt>Click Clear</dt>
+					<dd>To empty netlist if there is a mistake in the inserted netlist. Display result again to ensure input is empty</dd>
+					<dt>Click Solve</dt>
+					<dd>After inserting the netlist in correct format, Insert value of element to solve for and then click solve for solutions</dd>
+				</dl>
+			</div>
+			<!--</form>-->
 		</section>
 
 
 		<section class="eleven wide column">
 			<h1 class="ui header">Insert Netlist of Circuit in matrix</h1>
-			<div class="content">
-				
-			</div>
-		</section>
-	</main>
-</div>
+			<div class="insert">
 
-{% endblock %}
+				<!--<form action="/simulate" method="POST">-->
+				<input type="text" id="text1" placeholder="Insert Netlist here"></input>
+				<br>
+				<br>
+				<input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
+				<input type="button" id="button3" value="Clear" onclick="clear_array();"></input>
+				<br>
+				<br>
+				<input type="text" id="text2" placeholder="Value to solve for"></input>
+				<button class="button4" onclick="solve();">Simulate</button>
+
+
+				<div id="Result"></div>
+				<!--</form>-->
+
+
+
+			</div>
+			</section>
+		</main>
+	</div>
+
+	{% endblock %}

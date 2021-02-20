@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-    <script src="{{ url_for('static', filename='js/semantic.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/semantic.js')}}"></script>
     <script src="{{ url_for('static', filename='js/misc.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/insert.js') }}"></script>
 
     <link href="/static/images/circuitlogo2.jpg" rel="icon">
     <title>Circuit Office</title>
@@ -67,17 +68,7 @@
                 <a class="item">
                     <i class="home icon"></i> Blog
                 </a>
-                <div class="ui simple dropdown item">
-                    <i class="grid layout icon"></i>
-                    Browse
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a class="item"><i class="users icon"></i> Artists</a>
-                        <a class="item"><i class="theme icon"></i> Genres</a>
-                        <a class="item"><i class="paint brush icon"></i> Paintings</a>
-                        <a class="item"><i class="cube icon"></i> Subjects</a>
-                    </div>
-                </div>
+                
                 <div class="right item">
                     <div class="ui mini icon input">
                         <form action="https://google.com/search" type="GET">
