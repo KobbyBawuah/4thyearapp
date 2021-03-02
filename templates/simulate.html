@@ -77,14 +77,14 @@
 				<dl>
 					<dt>Valid elememt reprentation:</dt>
 					<dd>-Rx(Resitor x),....</dd>
-					<dt>Parsed with commas(,)</dt>
-					<dd>Values of elements for each input must be separated with commas</dd>
+					<dt>Parsed with spaces (" ")</dt>
+					<dd>Values of elements for each input must be separated with spaces</dd>
 					<dt>End with a full stop(.)</dt>
 					<dd>Each input field must be ended to indicate field end.</dd>
 					<dt>Click Add</dt>
 					<dd>After each line is inserted click add before typing the next line</dd>
-					<dt>Click Display</dt>
-					<dd>To view the inserted netlist</dd>
+					<dt>Click Remove Last</dt>
+					<dd>To remove the last line of the inserted netlist</dd>
 					<dt>Click Clear</dt>
 					<dd>To empty netlist if there is a mistake in the inserted netlist. Display result again to ensure input is empty</dd>
 					<dt>Click Solve</dt>
@@ -104,14 +104,15 @@
 				<br>
 				<br>
 				<input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
+				<input type="button" id="button2" value="Remove Last" onclick="remove_array();"></input>
 				<input type="button" id="button3" value="Clear" onclick="clear_array();"></input>
-				<br>
 				<div id="Result"></div>
 				<br>
-				<input type="text" id="text2" placeholder="Value to solve for"></input>
+				<input type="text" id="text2" placeholder="Value to solve for here"></input>
 				<br>
 				<br>
 				<input type="button" id="button1" value="Add" onclick="add_element_to_array2();"></input>
+				<input type="button" id="button2" value="Remove Last" onclick="remove_array2();"></input>
 				<input type="button" id="button3" value="Clear" onclick="clear_array2();"></input>
 				<br>
 				<div id="Result2"></div>
