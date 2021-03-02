@@ -8,6 +8,7 @@ from lcapy import Circuit
 
 app = Flask(__name__)       # Use the flask Python web framework
 
+testVar = None
 
 # Renders the home web page
 @app.route('/')
@@ -17,6 +18,7 @@ def home():
 # Render main simulator page; Add component to the netlist if one was added
 @app.route('/simulate', methods=['POST', 'GET'])
 def simulate():
+    global testVar
     if request.method == 'POST': 
         netlistArray = request.json["netlistArray"]
         valueArray = request.json["valueArray"]
@@ -26,21 +28,21 @@ def simulate():
 
         #run lcappy functions here i guess.
         mna = Circuit()
-        mna.add('V1 1 0_1 3; down')
-        mna.add('R1 1 2 3; right')
-        mna.add('R2 2 0 2; down')
-        mna.add('I1 2_1 0_2; down')
-        mna.add('W 0 0_1; left')
-        mna.add('W 0 0_2; right')
-        mna.add('W 2 2_1; right')
-        mna.add('')
 
-        mna.draw("top.pdf")
+        #with open("circuitnetlist.csv","w",newline = "") as new_file:
+        #    csv_writer = csv.writer(new_file, delimiter = " ")
+        #    for line in netlistArray:
+        #        csv_writer.writerow(line.split(" "))
 
-        with open("circuitnetlist.csv","w",newline = "") as new_file:
-            csv_writer = csv.writer(new_file, delimiter = " ")
-            for line in netlistArray:
-                csv_writer.writerow(line.split(" "))
+        length = len(netlistArray)
+        for line in range(length):
+            mna.add(str(netlistArray[line]))
+                
+        mna.draw("test.pdf")
+        
+        #mna.V1.V
+
+        #print(mna.V1.V)
         return redirect (url_for("run"))
     else:
         return render_template('simulate.html')
@@ -48,7 +50,9 @@ def simulate():
 # Run simulation using the simulation parameters given
 @app.route('/run', methods=['POST', 'GET'])
 def run():
-        return render_template('run.html')
+    global testVar
+    print(testVar)
+    return render_template('run.html',testVar = testVar)
 
 
 # Renders the AboutUs web page
