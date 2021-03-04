@@ -73,21 +73,42 @@
 				<h2 class="ui dividing header">Rules</h2>
 				<b style="color:red">Rules must be followed to get the maxinmum results out of this prototype simulator.</b>
 				<br>
-				x = any number;
 				<dl>
-					<dt>Valid elememt reprentation:</dt>
-					<dd>-Rx(Resitor x),....</dd>
+					<dt>Valid sample Netlist input:(each line can be copied and inserted):</dt>
+					<dd>
+						V1 1 0_1 3; down
+					</dd>
+					<dd>
+						R1 1 2 3; right
+					</dd>
+					<dd>
+						R2 2 0 2; down
+					</dd>
+					<dd>
+						I1 2_1 0_2; down
+					</dd>
+					<dd>
+						W 0 0_1; left
+					</dd>
+					<dd>
+						W 0 0_2; right
+					</dd>
+					<dd>
+						W 2 2_1; right
+					</dd>
 					<dt>Parsed with spaces (" ")</dt>
 					<dd>Values of elements for each input must be separated with spaces</dd>
-					<dt>End with a full stop(.)</dt>
-					<dd>Each input field must be ended to indicate field end.</dd>
 					<dt>Click Add</dt>
 					<dd>After each line is inserted click add before typing the next line</dd>
 					<dt>Click Remove Last</dt>
 					<dd>To remove the last line of the inserted netlist</dd>
 					<dt>Click Clear</dt>
 					<dd>To empty netlist if there is a mistake in the inserted netlist. Display result again to ensure input is empty</dd>
-					<dt>Click Solve</dt>
+					<dt>Valid value to solve for input:</dt>
+					<dd>
+						V1
+					</dd>
+					<dt>Click Simulate</dt>
 					<dd>After inserting the netlist in correct format, Insert value of element to solve for and then click solve for solutions</dd>
 				</dl>
 			</div>

@@ -39,10 +39,7 @@ def simulate():
             mna.add(str(netlistArray[line]))
                 
         mna.draw("test.pdf")
-        
-        #mna.V1.V
 
-        #print(mna.V1.V)
         return redirect (url_for("run"))
     else:
         return render_template('simulate.html')
