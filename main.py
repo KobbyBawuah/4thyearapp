@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, send_file
 from datetime import datetime
 from operator import itemgetter, attrgetter
 import csv
@@ -14,6 +14,12 @@ testVar = None
 @app.route('/')
 def home():
     return render_template('home.html')
+
+# pdf
+@app.route('/send-pdf')
+def send_pdf():
+    print('In send-pdf route')
+    return send_file('./test.pdf', attachment_filename='test.pdf')
 
 # Render main simulator page; Add component to the netlist if one was added
 @app.route('/simulate', methods=['POST', 'GET'])
