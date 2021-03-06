@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, send_file
 from datetime import datetime
 from operator import itemgetter, attrgetter
 import csv
-from lcapy import Circuit 
+from lcapy import *
 
 # PROGRAMMED BY KWABENA GYASI BAWUAH
 
@@ -32,19 +32,33 @@ def simulate():
         print(netlistArray)
         print(valueArray)
 
+        test_circuit = '''      
+        V1 1 0_1 dc 3; down, i=i_x
+        R1 1 2 4; right
+        R2 2 0 2; down
+        I1 2_1 0_2 dc 2; down
+        W 0 0_1; left
+        W 0 0_2; right
+        W 2 2_1; right
+            '''
+
+        netlistArray = [y for y in (x.strip() for x in test_circuit.splitlines()) if y]
+        
         #run lcappy functions here i guess.
-        mna = Circuit()
+        mna = Circuit(test_circuit)
 
         #with open("circuitnetlist.csv","w",newline = "") as new_file:
         #    csv_writer = csv.writer(new_file, delimiter = " ")
         #    for line in netlistArray:
         #        csv_writer.writerow(line.split(" "))
 
-        length = len(netlistArray)
-        for line in range(length):
-            mna.add(str(netlistArray[line]))
+        #length = len(netlistArray)
+        #for line in range(length):
+        #    mna.add(str(netlistArray[line]))
                 
         mna.draw("test.pdf")
+
+        testVar = mna.dc().equations()
 
         return redirect (url_for("run"))
     else:

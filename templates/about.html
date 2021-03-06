@@ -1,4 +1,4 @@
-﻿{% extends 'base.html' %}
+﻿<!--{% extends 'base.html' %}-->
 
 {% block style %}
 <style>
@@ -22,7 +22,10 @@
         margin-left: 40%;
     }
 </style>
+{% endblock %}
 
+{% block head %}
+{{ super() }}
 {% endblock %}
 
 {% block body %}

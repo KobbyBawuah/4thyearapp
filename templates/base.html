@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!--<meta charset="UTF-8">-->
     <meta charset=utf-8>
     <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -27,11 +27,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.worker.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf_viewer.min.css" />"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf_viewer.min.css" />
 
-    
 
-    <link href="/static/images/circuitlogo2.jpg" rel='icon'>
+    <script src="{{ url_for('static', filename='js/simple.js') }}"></script>
+
+    <link href="/static/images/circuitlogo2.jpg" rel="icon">
     <title>Circuit Office</title>
 
 
@@ -42,7 +43,7 @@
 </head>
 <body>
     <header>
-        <div class="ui attached stackable grey inverted  menu">
+        <div class="ui grey inverted  menu">
             <div class="ui container">
                 <nav class="right menu">
                     <div class="ui simple  dropdown item">
@@ -56,7 +57,7 @@
                             <a class="item"><i class="settings icon"></i> Account Settings</a>
                         </div>
                     </div>
-                    <a class=" item">
+                    <a class="item">
                         <i class="heartbeat icon"></i> Favorites
                     </a>
                     <a class=" item">
@@ -103,7 +104,9 @@
     </header>
     <main>
 
-        {% block body %}{% endblock %}
+        {% block body %}
+        
+        {% endblock %}
 
     </main>
     <footer class="ui black inverted segment">
