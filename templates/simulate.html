@@ -60,6 +60,18 @@
         opacity: 1;
         right: 0;
     }
+    .float-container {
+        border: 3px solid #fff;
+        padding: 20px;
+    }
+
+    .float-child {
+        width: 50%;
+        float: left;
+        padding: 20px;
+		/*come and remove this after import*/
+        border: 2px solid black;
+    }
 </style>
 
 {% endblock %}
@@ -120,31 +132,50 @@
 
 		<section class="eleven wide column">
 			<h1 class="ui header">Insert Netlist of Circuit</h1>
-			<div class="insert">
-
+			<div class="float-container">
 				<!--add button to remove last add-->
-				<input type="text" id="text1" placeholder="Insert Netlist here"></input>
-				<br>
-				<br>
-				<input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
-				<input type="button" id="button2" value="Remove Last" onclick="remove_array();"></input>
-				<input type="button" id="button3" value="Clear" onclick="clear_array();"></input>
-				<div id="Result"></div>
-				<br>
-				<input type="text" id="text2" placeholder="Value to solve for here"></input>
-				<br>
-				<br>
-				<input type="button" id="button1" value="Add" onclick="add_element_to_array2();"></input>
-				<input type="button" id="button2" value="Remove Last" onclick="remove_array2();"></input>
-				<input type="button" id="button3" value="Clear" onclick="clear_array2();"></input>
-				<br>
-				<div id="Result2"></div>
-				<br>
-				<button class="button4" style="vertical-align:middle" onclick="solve();"><span>Simulate</span></button>
+				<div class = " float-child">
+					<input type="text" id="text1" placeholder="Insert Netlist here"></input>
+					<br>
+					<br>
+					<input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
+					<input type="button" id="button2" value="Remove Last" onclick="remove_array();"></input>
+					<input type="button" id="button3" value="Clear" onclick="clear_array();"></input>
+					<div id="Result"></div>
+					<br>
+					<input type="text" id="text2" placeholder="Value to solve for here"></input>
+					<br>
+					<br>
+					<input type="button" id="button1" value="Add" onclick="add_element_to_array2();"></input>
+					<input type="button" id="button2" value="Remove Last" onclick="remove_array2();"></input>
+					<input type="button" id="button3" value="Clear" onclick="clear_array2();"></input>
+					<br>
+					<div id="Result2"></div>
+					<br>
+					<button class="button4" style="vertical-align:middle" onclick="solve();"><span>Simulate</span></button>
+
+				</div>
+
+				<div class="float-child">
+
+					<form id="uploadbanner" enctype="multipart/form-data" method="post" action="#">
+						<div>
+							<label for="file">Choose file to upload</label>
+							<input id="fileupload" name="myfile" type="file" accept=".csv" />
+							<input type="submit" value="submit" id="submit" />
+						</div>
+					</form>
 
 
-			</div>
-			</section>
+
+				</div>
+
+
+				</div>
+
+</section>
+
+		
 		</main>
 	</div>
 

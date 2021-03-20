@@ -6,6 +6,18 @@
     .bgimg {
         background-image: url('/static/images/background.jpg');
     }
+    .buttombutton {
+        padding-top: 50px;
+        padding-right: 46%;
+        padding-bottom: 50px;
+        padding-left: 46.5%;
+    }
+    .canvas {
+        padding-top: 50px;
+        padding-right: 46%;
+        padding-bottom: 50px;
+        padding-left: 46.5%;
+    }
 </style>
 {% endblock %}
 
@@ -24,8 +36,17 @@
 
     </table>
     <p>{{testVar}}</p>
+    <p>{{testVar2}}</p>
 
-    <canvas id="the-canvas">  </canvas>
+    <div id="canvas">
+        <canvas id="the-canvas">  </canvas>
+    </div>
+
+    <div class="buttombutton">
+        <form action="/simulate">
+            <p><button type="submit" class="w3-button w3-black w3-round-xlarge">Launch Circuit Office</button></p>
+        </form>
+    </div>
 
 </div>
 
