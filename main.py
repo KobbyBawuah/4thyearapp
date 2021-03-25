@@ -28,22 +28,18 @@ def send_pdf():
     return send_file('./test.pdf', attachment_filename='test.pdf')
 
 #upload
-@app.route('/upload')
-def upload_file():
-    return render_template('simulate.html')
+#@app.route('/upload')
+#def upload_file():
+#    return render_template('simulate.html')
 
 # Render main simulator page; Add component to the netlist if one was added
 @app.route('/simulate', methods=['POST', 'GET'])
 def simulate():
     global testVar
+    global testVar2
     if request.method == 'POST': 
         netlistArray = request.json["netlistArray"]
         valueArray = request.json["valueArray"]
-        
-        #trying to save file
-        #f = request.files['file']
-        #f.save(secure_filename(f.filename))
-        #print("file uploaded successfully")
 
         #print(request.method)
         print(netlistArray)
@@ -63,16 +59,13 @@ def simulate():
 
         #------------------------
         if len(netlistArray) > 0 :
-        
             mna = Circuit()
-        
             #to iterate user input 
             length = len(netlistArray)
             for line in range(length):
                 mna.add(str(netlistArray[line]))
 
             mna.draw("test.pdf")
-
             #---------------------------
 
             #to write netlist array to csv
@@ -94,9 +87,12 @@ def simulate():
             mna = Circuit('circuitnetlist.csv')
             mna.draw("test.pdf")
 
+
+
         testVar = mna.dc().equations()
         
-        #testVar2 = mna.V1.v
+        #testVar2 = mna.R1.V
+        print("Test Var2 works")
 
         #tried ploting
         #tv = linspace(0, 1, 100)
@@ -106,8 +102,6 @@ def simulate():
         #ax.legend()
 
         #savefig('sim1.png')
-
-
 
         return redirect (url_for("run"))
     else:

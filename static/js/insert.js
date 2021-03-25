@@ -23,6 +23,29 @@ function add_element_to_array2() {
     display_array2();
 }
 
+function add_elements_to_array(file) {
+    // parse CSV to populate array
+    console.log(file)
+    if (file.files && file.files[0]) {
+        let file_reader = new FileReader();
+        let num_lines = 0;
+        file_reader.readAsBinaryString(file.files[0]);
+
+        file_reader.onload = function (e) {
+            console.log(e);
+            num_lines = e.total;
+            // obj_csv.dataFile = e.target.result
+            console.log(e.target.result);
+            parseData(e.target.result);
+            display_array();
+        }
+    }
+}
+
+function parseData(data) {
+    netlistArray = data.split("\n");
+}
+
 function display_array()
 {
     var e = "<hr/>";
