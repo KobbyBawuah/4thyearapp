@@ -3,8 +3,8 @@
 <head>
     <!--<meta charset="UTF-8">-->
     <meta charset=utf-8>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
 
     <!--<link href="/static/css/semantic.css" rel="stylesheet" />-->
     <!--<link href="/static/css/icon.css" rel="stylesheet" />-->
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/icon.css') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
 
     <script src="{{ url_for('static', filename='js/semantic.js')}}"></script>
     <script src="{{ url_for('static', filename='js/misc.js') }}"></script>
@@ -90,7 +90,7 @@
                             <i class="search icon"></i>
                             <script>
                                 var form = document.querySelector("form");
-                                form.addEventListener("search", function (e) {
+                                    form.addEventListener("search", function (e) {
                                     e.preventDefault();
                                     var search = form.querySelector("input[type=search]");
                                     search.value = "Site: Circuit Office " + search.value;
