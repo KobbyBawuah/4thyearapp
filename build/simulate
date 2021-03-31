@@ -1,30 +1,44 @@
-﻿﻿<!DOCTYPE html>
+﻿<!--﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!--<meta charset="UTF-8">-->
     <meta charset=utf-8>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-    <link href="/static/css/semantic.css" rel="stylesheet" />
-    <link href="/static/css/icon.css" rel="stylesheet" />
+    <!--<link href="/static/css/semantic.css" rel="stylesheet" />-->
+    <!--<link href="/static/css/icon.css" rel="stylesheet" />-->
+    <!--<link rel="stylesheet" href="/static/css/styles.css" />-->
+    <!--<link rel="stylesheet" href="/static/css/_styles.css" />-->
+    <link rel="stylesheet" href="/static/css/reset.css" />
     <link rel="stylesheet" href="/static/css/styles.css" />
-    <link rel="stylesheet" href="/static/css/_styles.css" />
+    <link rel="stylesheet" href="/static/css/semantic.css" />
+    <link rel="stylesheet" href="/static/css/icon.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script src="/static/js/semantic.js"></script>
+    <script src="/static/js/misc.js"></script>
+    <script src="/static/js/insert.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.worker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf_viewer.min.css" />
+
+
+    <script src="/static/js/simple.js"></script>
 
     <link href="/static/images/circuitlogo2.jpg" rel="icon">
     <title>Circuit Office</title>
 
-    <!-- <link rel="stylesheet" href="/static/css/reset.css" /> -->
-    <!-- <link rel="stylesheet" href="/static/css/styles.css" /> -->
-    <!-- <h1>CircuitSimulatorApp</h1> -->
-    <!--  -->
-	
+
+    
 
 <style>
 	.bgimg {
-		background-image: url('images/background.jpg');
+		background-image: url('/static/images/background.jpg');
 	}
 
 	.w3-btn {
@@ -38,6 +52,68 @@
 	.insert {
 		padding-top: 50px;
 	}
+
+    .button4 {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #346e43;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 8px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .button4 span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button4 span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button4:hover span {
+        padding-right: 25px;
+    }
+
+    .button4:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+    .float-container {
+        border: 3px solid #fff;
+        padding: 20px;
+    }
+
+    .float-child {
+        width: 100%;
+        float: left;
+        padding: 20px;
+		/*come and remove this after import*/
+        border: 2px solid black;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: .5;
+    }
 </style>
 
 
@@ -45,7 +121,7 @@
 </head>
 <body>
     <header>
-        <div class="ui attached stackable grey inverted  menu">
+        <div class="ui grey inverted  menu">
             <div class="ui container">
                 <nav class="right menu">
                     <div class="ui simple  dropdown item">
@@ -59,7 +135,7 @@
                             <a class="item"><i class="settings icon"></i> Account Settings</a>
                         </div>
                     </div>
-                    <a class=" item">
+                    <a class="item">
                         <i class="heartbeat icon"></i> Favorites
                     </a>
                     <a class=" item">
@@ -83,17 +159,7 @@
                 <a class="item">
                     <i class="home icon"></i> Blog
                 </a>
-                <div class="ui simple dropdown item">
-                    <i class="grid layout icon"></i>
-                    Browse
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a class="item"><i class="users icon"></i> Artists</a>
-                        <a class="item"><i class="theme icon"></i> Genres</a>
-                        <a class="item"><i class="paint brush icon"></i> Paintings</a>
-                        <a class="item"><i class="cube icon"></i> Subjects</a>
-                    </div>
-                </div>
+                
                 <div class="right item">
                     <div class="ui mini icon input">
                         <form action="https://google.com/search" type="GET">
@@ -101,7 +167,7 @@
                             <i class="search icon"></i>
                             <script>
                                 var form = document.querySelector("form");
-                                form.addEventListener("search", function (e) {
+                                    form.addEventListener("search", function (e) {
                                     e.preventDefault();
                                     var search = form.querySelector("input[type=search]");
                                     search.value = "Site: Circuit Office " + search.value;
@@ -120,45 +186,117 @@
 
 <div class="bgimg">
 	<main class="ui segment doubling stackable grid container">
-
 		<section class="five wide column">
-			<form class="ui form">
-				<div>
-					<h2 class="ui dividing header">Rules</h2>
-					<b style="color:red">Rules must be followed to get the maxinmum results out of this prototype simulator.</b>
-					<br>
-					x = any number;
-					<dl>
-						<dt>Valid elememt reprentation:</dt>
-						<dd>-Rx(Resitor x),....</dd>
-						<dt>Parsed with commas(,)</dt>
-						<dd>Values of elements for each input must be separated with commas</dd>
-						<dt>End with a full stop(.)</dt>
-						<dd>Each input field must be ended to indicate field end.</dd>
-						<dt>Click Add</dt>
-						<dd>After each line is inserted click add before typing the next line</dd>
-						<dt>Click Display</dt>
-						<dd>To view the inserted netlist</dd>
-						<dt>Click Clear</dt>
-						<dd>To empty netlist if there is a mistake in the inserted netlist. Display result again to ensure input is empty</dd>
-						<dt>Click Solve</dt>
-						<dd>After inserting the netlist in correct format, Insert value of element to solve for and then click solve for solutions</dd>
-					</dl>
-				</div>
-			</form>
+			<!--<form class="ui form">-->
+			<div>
+				<h2 class="ui dividing header">Rules</h2>
+				<b style="color:red">Rules must be followed to get the maximum results out of this prototype simulator.</b>
+				<br>
+				<dl>
+					<dt>Valid sample Netlist input:(each line can be copied and inserted):</dt>
+					<dd>
+						V1 1 0_1 3; down
+					</dd>
+					<dd>
+						R1 1 2 3; right
+					</dd>
+					<dd>
+						R2 2 0 2; down
+					</dd>
+					<dd>
+						I1 2_1 0_2; down
+					</dd>
+					<dd>
+						W 0 0_1; left
+					</dd>
+					<dd>
+						W 0 0_2; right
+					</dd>
+					<dd>
+						W 2 2_1; right
+					</dd>
+					<dt>Parsed with spaces (" ")</dt>
+					<dd>Values of elements for each input must be separated with spaces</dd>
+					<dt>Click Add</dt>
+					<dd>After each line is inserted click add before typing the next line</dd>
+					<dt>Click Remove Last</dt>
+					<dd>To remove the last line of the inserted netlist</dd>
+					<dt>Click Clear</dt>
+					<dd>To empty netlist if there is a mistake in the inserted netlist. Display result again to ensure input is empty</dd>
+					<dt>Valid value to solve for input:</dt>
+					<dd>
+						V1
+					</dd>
+					<dt>Click Simulate</dt>
+					<dd>After inserting the netlist in correct format, Insert value of element to solve for and then click solve for solutions</dd>
+					<dt>Click Choose File</dt>
+					<dd>To import netlist from a csv file on your computer.</dd>
+				</dl>
+			</div>
+			<!--</form>-->
 		</section>
 
 
 		<section class="eleven wide column">
-			<h1 class="ui header">Insert Netlist of Circuit in matrix</h1>
-			<div class="content">
-				
+			<h1 class="ui header">Insert Netlist of Circuit</h1>
+			<div class="float-container">
+				<!--add button to remove last add-->
+				<div class=" float-child">
+					<input type="text" id="text1" placeholder="Insert Netlist here"/>
+					<br>
+					<br>
+					<input type="button" id="button1" value="Add" onclick="add_element_to_array();"/>
+					<input type="button" id="button2" value="Remove Last" onclick="remove_array();"/>
+					<input type="button" id="button3" value="Clear" onclick="clear_array();"/>
+					<div id="Result"></div>
+					<br>
+					<input type="text" id="text2" placeholder="Value to solve for here"/>
+					<br>
+					<br>
+					<input type="button" id="button1" value="Add" onclick="add_element_to_array2();"/>
+					<input type="button" id="button2" value="Remove Last" onclick="remove_array2();"/>
+					<input type="button" id="button3" value="Clear" onclick="clear_array2();"/>
+					<br>
+					<div id="Result2"></div>
+					<br>
+					<div class="float-child">
+
+						<!--<form id="uploadbanner" enctype="multipart/form-data" method="post" action="#">-->
+						<!--<div>-->
+						<label for="file">Choose file to upload</label>
+						<input id="fileupload" name="myfile" type="file" accept=".csv" onChange="add_elements_to_array(this);" />
+						<!--<input type="submit" value="Populate Netlist Array" id="submit" onclick="add_elements_to_array(myfile);" />-->
+						<!--</div>-->
+						<!--</form>-->
+						<div id="loading" class="overlay" style="display:none;"><img src="https://i.stack.imgur.com/hzk6C.gif" alt="" />Loading!</div>
+					</div>
+					<button class="button4" style="vertical-align:middle" onclick="solve(); $('#loading').show();"><span>Simulate</span></button>
+				</div>
+
+				<!--<div class="float-child">
+
+				<form id="uploadbanner" enctype="multipart/form-data" method="post" action="#">
+					<div>
+						<label for="file">Choose file to upload</label>
+						<input id="fileupload" name="myfile" type="file" accept=".csv" />
+						<input type="submit" value="submit" id="submit" />
+					</div>
+				</form>
+
+
+
+			</div>-->
+
+
 			</div>
+
 		</section>
+
+
 	</main>
-</div>
+	</div>
 
-
+	
 
     </main>
     <footer class="ui black inverted segment">
@@ -195,8 +333,6 @@
             </p>
         </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/static/css/semantic.js"></script>
-    <script src="/static/js/misc.js"></script>
+    
 </body>
 </html>

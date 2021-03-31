@@ -75,7 +75,7 @@ def simulate():
             #        csv_writer.writerow(line.split(" "))
             
             #---------------------------
-            #to read netlist array to csv
+            #to read netlist array from csv
             #with open("circuitnetlist.csv","r",newline = "") as csv_file:        
             #    csv_reader = csv.reader(csv_file, delimiter=',')
             #    for row in csv_reader:
@@ -86,9 +86,6 @@ def simulate():
         else: 
             mna = Circuit('circuitnetlist.csv')
             mna.draw("test.pdf")
-
-
-
         testVar = mna.dc().equations()
         
         #testVar2 = mna.R1.V
